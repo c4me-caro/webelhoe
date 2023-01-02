@@ -1,0 +1,224 @@
+{% extends"layout.html" %} {% block content %}
+  
+  <div class="modal" tabindex="-1" id="cajacookies" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Pol&iacute;tica de cookies</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <p>Este sitio web usa cookies, si permanece aqu&iacute; acepta su uso. Puede leer m&aacute;s sobre el uso de cookies en nuestra
+                    <a href="/info/cookies">pol&iacute;tica de privacidad</a>.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="aceptarCookies();">Aceptar Cookies</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="serv1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Consulta Nutricional Integral</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <p>Valoraci&oacute;n del Estado Nutricional; incluye: Calculo de la composici&oacute;n corporal, Valoraci&oacute;n Antropom&eacute;trica, An&aacute;lisis de ingesta, Calculo de Riesgo Cardiovascular y Riesgo de Sarcopenia.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="window.location = '/consultorio/citas';">Citas</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="serv2" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Terapia Nutricional Paciente Obeso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <p>Incluye Evaluaci&oacute;n Inicial, Controles mensuales, Educaci&oacute;n Alimentaria, planes alimentarios, Promoci&oacute;n de vida saludable.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="window.location = '/consultorio/citas';">Citas</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="serv3" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Seguimiento Paciente con Gastrostom&iacute;a</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <p>Valoraci&oacute;n inicial, seguimiento, orientaci&oacute;n a cuidadores en el manejo de la Nutrici&oacute;n y cuidado de sonda.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="window.location = '/consultorio/citas';">Citas</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="serv4" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Control a Paciente Bari&aacute;trico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <p>Valoraci&oacute;n inicial, seguimiento y asesor&iacute;a alimentaria del paciente con cirug&iacute;a Bariatrica</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="window.location = '/consultorio/citas';">Citas</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="serv5" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Atenci&oacute;n a Paciente Cr&oacute;nico Domiciliario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <p>pacientes con limitaciones funcionales o mentales que por su condici&oacute;n no pueden ser atendidos en los niveles ambulatorios. El seguimiento nutricional se realiza de manera mensual, bimensual o trimestral seg&uacute;n edad y estado
+                    del paciente.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="window.location = '/consultorio/citas';">Citas</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="banner">
+    <img src="{{ url_for('static', filename='images/prem.png') }}">
+</div>
+
+<div class="content" align="center">
+    <div class="card" style="width: 18rem;">
+        <!--img class="card-img-top" src="..." alt="Card image cap"-->
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">Consulta Nutricional Integral</h5>
+                <a href="javascript:void(0)" onclick="$('#serv1').modal('show');" class="card-link">M&aacute;s informaci&oacute;n</a>
+            </div> 
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <!--img class="card-img-top" src="..." alt="Card image cap"-->
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">Terapia Nutricional Paciente Obeso</h5>
+                <a href="javascript:void(0)" onclick="$('#serv2').modal('show');" class="card-link">M&aacute;s informaci&oacute;n</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <!--img class="card-img-top" src="..." alt="Card image cap"-->
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">Seguimiento Paciente con Gastrostom&iacute;a</h5>
+                <a href="javascript:void(0)" onclick="$('#serv3').modal('show');" class="card-link">M&aacute;s informaci&oacute;n</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <!--img class="card-img-top" src="..." alt="Card image cap"-->
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">Control a Paciente Bari&aacute;trico</h5>
+                <a href="javascript:void(0)" onclick="$('#serv4').modal('show');" class="card-link">M&aacute;s informaci&oacute;n</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <!--img class="card-img-top" src="..." alt="Card image cap"-->
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">Atenci&oacute;n a Paciente Cr&oacute;nico Domiciliario</h5>
+                <a href="javascript:void(0)" onclick="$('#serv5').modal('show');" class="card-link">M&aacute;s informaci&oacute;n</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cerca" align="center">
+    <div class="content2">
+        <h2 style="font-size: 28px;">Qui&eacute;nes Somos</h2>
+        <p>Elohe Nutricion es una compañia asesora y consultora de Nutricion y Seguridad Alimentaria.</p>
+        <p>Somos especialistas en Terapia Nutricional Avanzada, prestamos servicio de Atencion nutricional Domiciliaria y por Tele consulta. Nuestros procedimientos estan basados en la Dietoterapia y la promocion de una alimentacion inteligente en congruencia,
+            con una nutricion consciente. Nuestro objetivo es la recuperacion del paciente junto con el apoyo a cuidadores y familiares.</p>
+    </div>
+    <div class="content2">
+        <h2 style="font-size: 28px;">Nuestro equ&iacute;po de trabajo</h2>
+        <div class="personal">
+            <img src="{{ url_for( 'static', filename='images/RocioCampo.jpg' ) }}" width="80%">
+            <h4>Roc&iacute;o Susana Campo Y&aacute;niz</h4>
+            <p>Nutricionista Dietista egresada de la universidad del atl&aacute;ntico con m&aacute;s de 20 a&ntilde;os de experiencia.</p>
+        </div>
+        <div class="personal">
+            <img src="{{ url_for( 'static', filename='images/IlbaRosaUrueta.jpeg' ) }}" width="80%">
+            <h4>Ilba Rosa Urueta</h4>
+            <p>Nutricionista Dietista egresada de la universidad del atl&aacute;ntico con m&aacute;s de 15 a&ntilde;os de experiencia.</p>
+        </div>
+        <div class="personal">
+            <img src="{{ url_for( 'static', filename='images/LeidysOspino.jpg' ) }}" width="80%">
+            <h4>Leidy Yolanda Ospino Mu&ntilde;&oacute;z</h4>
+            <p>Nutricionista Dietista egresada de la universidad del atl&aacute;ntico con m&aacute;s de 25 a&ntilde;os de experiencia.</p>
+        </div>
+    </div>
+</div>
+
+<div id="contact" align="center" class="content2">
+    <div class="content3" align="center">
+        <form action="/cont/" method="POST">
+            <h2 style="font-size: 28px;">Cont&aacute;ctenos</h2>
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Nombre completo" required="">
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" id="formGroupExampleInput2" placeholder="E-mail" required="">
+            </div>
+            <div class="form-group">
+                <input type="phone" name="phone" class="form-control" id="formGroupExampleInput2" placeholder="Celular / Tel&eacute;fono" required="">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="message" id="formGroupExampleInput2" placeholder="Escriba un mensaje..."></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Enviar">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

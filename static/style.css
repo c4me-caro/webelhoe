@@ -1,0 +1,206 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+body::-webkit-scrollbar {
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.social-cont {
+	position: fixed;
+	bottom: 25%;
+    right: 5px;
+    z-index: 3;
+}
+
+.social-link svg {
+    width: 40px;
+    margin:0 auto;
+}
+
+.social-link>img {
+    width: 40px;
+    margin: 0 auto;
+}
+
+.whatsapp-ico{
+    fill: white;
+    background-color: #4dc247;
+    border-radius: 4px;
+}
+
+header {
+    margin-bottom: -24px;
+}
+
+.banner {
+    width: 100%;
+}
+
+.banner img {
+    display: block;
+    margin: 24px auto;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+}
+
+.nav-item {
+    font-size: 18px;
+    font-weight: 450;
+    margin: 0 6px;
+}
+
+svg {
+    vertical-align: -2px;
+}
+
+.content {
+    padding: 2px;
+    margin: 0;
+}
+
+.content,
+#cerca {
+    margin-bottom: 12px;
+}
+
+.content2 {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 24px;
+    width: 95vw;
+    margin: 0 auto;
+    margin-bottom: 16px;
+}
+
+.content img {
+    transition: 1s;
+    padding: 15px;
+}
+
+.content3 {
+    padding: 24px;
+    width: 45vw;
+    margin: 0 auto;
+}
+
+textarea {
+    min-height: 80px;
+}
+
+.personal {
+    vertical-align: top;
+    display: inline-block;
+    padding: 6px;
+    margin: 0 6px;
+    width: 30%;
+}
+
+.personal img {
+    padding: 24px;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+.container-footer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.footer {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.copyright {
+    color: #C7C7C7;
+}
+
+.copyright a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.information a {
+    text-decoration: none;
+    color: #C7C7C7;
+}
+
+.btn,
+.btn-primary,
+.btn-sm {
+    background-color: #8A2BE2;
+    border: #8A2BE2;
+    outline: none;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-sm:hover {
+    background-color: #9400D3;
+    border: #9400D3;
+}
+
+.card {
+    position: static;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 248px;
+    margin: 6px;
+}
+
+@media (max-width: 690px) {
+    .content2 {
+        width: 88vw;
+    }
+}
+
+@media (max-width: 950px) {
+    .content3 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    footer {
+        font-size: 78%;
+    }
+}
+
+@media (max-width: 565px) {
+    .personal {
+        width: 100%;
+        display: block;
+    }
+}
+
+
+/*@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {}*/

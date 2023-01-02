@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Panel de control</title>
+</head> 
+<body>
+	<h1>Bienvenido(a). {{username}}</h1><a href="/consultorio/logout">Cerrar sesion</a>
+	<br>
+
+	<h2 align="center">Usuarios</h2>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nombre de usuario</th>
+			<th>Nombre de cuenta</th>
+			<th>Nivel de permisos</th>
+			<th></th>
+			<th></th>
+		</tr>
+		{% for usuario in usuarios %}
+			<tr>
+				<td>{{usuario.id}}</td>
+				<td>{{usuario.user}}</td>
+				<td>{{usuario.username}}</td>
+				<td>{{usuario.permision}}</td>
+				<td><a href='/consultorio/session/edit/{{usuario.id}}'>Cambiar</a></td>
+				<td><a href="/consultorio/session/delete/{{usuario.id}}">Borrar</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+	<br>
+
+	<div align='center'><form action="/consultorio/session/add" method='POST'>
+		<h2>Nuevo usuario</h2>
+		<input type='text' name='user' placeholder='Usuario correo' required=''><br>
+		<input type='text' name='username' placeholder='Nombre de cuenta'><br>
+		<input type='password' name='pass' placeholder='Contraseña' required=''><br>
+		<input type='password' name='ver' placeholder='Veificar contraseña' required=''><br>
+		<input type='submit' value='Enviar'>
+	</form></div>
+<br>
+
+<h2 align="center">Requerimiento de contacto</h2>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Email</th>
+			<th>Telefono</th>
+			<th>Mensaje</th>
+			<th>Tiempo de consulta</th>
+			<th>Fue atendido</th>
+			<th></th>
+		</tr>
+		{% for task in contactos %}
+			<tr>
+				<td>{{task.id}}</td>
+				<td>{{task.nombre}}</td>
+				<td>{{task.email}}</td>
+				<td>{{task.telefono}}</td>
+				<td>{{task.mensaje}}</td>
+				<td>{{task.tiempo_consulta}}</td>
+				<td>{% if task.atendido == True %}
+					si
+				{% else %} no</td>
+				{%endif%}
+				<td><a href="/consultorio/contactos/activate/{{task.id}}">dar de alta</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+<br>
+
+<h2 align="center">Requerimiento de afiliacion</h2>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Email</th>
+			<th>Programa</th>
+			<th>Tiempo de consulta</th>
+			<th>Fue atendido</th>
+			<th></th>
+		</tr>
+		{% for task in afiliaciones %}
+			<tr>
+				<td>{{task.id}}</td>
+				<td>{{task.nombre}}</td>
+				<td>{{task.email}}</td>
+				<td>{{task.programa}}</td>
+				<td>{{task.tiempo_consulta}}</td>
+				<td>{% if task.atendido == True %}
+					si
+				{% else %} no</td>
+				{%endif%}
+				<td><a href="/consultorio/afiliacion/activate/{{task.id}}">dar de alta</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+<br>
+
+<h2 align="center">Requerimiento de citas</h2>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Documento</th>
+			<th>Email</th>
+			<th>Telefono</th>
+			<th>Fecha preferencial</th>
+			<th>Hora preferencial</th>
+			<th>Tiempo de consulta</th>
+			<th>Servicio</th>
+			<th>Modalidad</th>
+			<th>Fue atendido</th>
+		</tr>
+		{% for task in citas %}
+			<tr>
+				<td>{{task.id}}</td>
+				<td>{{task.nombre}}</td>
+				<td>{{task.documento}}</td>
+				<td>{{task.email}}</td>
+				<td>{{task.telefono}}</td>
+				<td>{{task.fecha_cita}}</td>
+				<td>{{task.hora_cita}}</td>
+				<td>{{task.tiempo_consulta}}</td>
+				<td>{{task.servicio}}</td>
+				<td>{{task.modalidad}}</td>
+				<td>{% if task.atendido == True %}
+					si
+				{% else %} no</td>
+				{%endif%}
+			</tr>
+		{% endfor %}
+	</table>
+</body>
+
+<br><br><br>
+
+</html>
+
+<style type="text/css">
+	table {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	table,th,td {
+		border: 1px solid blue;
+	}
+
+	th,td {
+		padding: 6px;
+	}
+
+	td {
+		margin: 0 auto;
+		text-align: center;
+	}
+</style>

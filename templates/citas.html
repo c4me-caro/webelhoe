@@ -1,0 +1,119 @@
+{% extends "layout.html" %} {% block content %}
+
+<br><br>
+
+<div id="citas" align="center" class="content2">
+    <div class="content3" align="center">
+        <form action="/consultorio/citas/cont/" method="POST">
+            <h2 style="font-size: 28px;">Agenda tu cita</h2>
+
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre completo" required="">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="cedula" class="form-control" id="cedula" placeholder="Documento de identificaci&oacute;n" required="">
+            </div>
+
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" id="email" placeholder="E-mail" required="">
+            </div>
+
+            <div class="form-group">
+                <input type="phone" name="phone" class="form-control" id="phone" placeholder="Celular / Tel&eacute;fono" required="">
+            </div>
+
+            <div class="form-group">
+                <input type="date" name="date" class="form-control" id="date" placeholder="Fecha de la cita">
+            </div>
+
+            <div class="form-group">
+                <input type="time" name="time" class="form-control" id="time" value="" placeholder="Hora de la cita">
+            </div>
+
+            <div class="form-group">
+                <input type="text" list="servicios" name="servicio" class="form-control" id="servicio" placeholder="Servicio que solicita" required="">
+
+                <datalist id="servicios">
+                    <option value="Consulta Nutricional Integral"></option>
+                    <option value="Taleres Familiares"></option>
+                    <option value="Terapia Nutricional a Paciente Obeso"></option>
+                    <option value="Seguimiento a paciente con Gastrostomia"></option>
+                    <option value="Control a Paciente Bariatrico"></option>
+                    <option value="Atencion a Paciente Cronico Domiciliario"></option>
+                </datalist>
+
+            </div>
+
+            <div class="form-group">
+                <input type="text" list="modals" name="modal" class="form-control" id="modal" placeholder="Modalidad de la consulta" required="">
+
+                <datalist id="modals">
+                    <option value="Modalidad presencial"></option>
+                    <option value="Modalidad a domicilio"></option>
+                </datalist>
+
+            </div>
+            <input type="submit" class="btn btn-primary" value="Enviar">
+        </form>
+    </div>
+</div>
+
+<style>
+    .highlighted_date {
+        font-weight: bold;
+        background: #95bee7;
+    }
+    
+    .ng-input-button-container>span {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        overflow: hidden;
+    }
+</style>
+
+<script type="text/javascript" src="{{url_for('static', filename='plugin/ng_all.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='plugin/ng_ui.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='plugin/components/calendar.js')}}"></script>
+<script type="text/javascript">
+    ng.ready(function() {
+        var start_cal = new ng.Calendar({
+            input: 'date',
+            my_end_cal: 'year',
+            events: {
+                onSelect: function(dt) {
+                    var st_dt = dt.clone();
+                    var dt_on_aval = {};
+                    dt_on_aval[st_dt.print('n_j_Y', 'en')] = function(id) {
+                        ng.get(id).add_class('highlighted_date');
+                    };
+                    this.p.my_end_cal.set_date_on_available(dt_on_aval);
+                    var num_days = 0;
+                    st_dt = st_dt.from_string('today+' + num_days);
+                    var end_dt = this.p.my_end_cal.get_selected_date();
+                    if ((ng.defined(end_dt)) &&
+                        (end_dt.getTime() < st_dt.getTime())) {
+                        this.p.my_end_cal.clear_selection();
+                    }
+                    this.p.my_end_cal.set_start_date(st_dt);
+                    this.p.my_end_cal.open();
+                },
+                onUnSelect: function(dt) {
+                    this.p.my_end_cal.set_date_on_available({});
+                    var st_dt = this.get_start_date().clone();
+                    this.p.my_end_cal.set_start_date(st_dt);
+                }
+            }
+        });
+    });
+
+    function setTime()  {
+	    var now = new Date();
+	    var time = now.getHours("HH") + ":" + now.getMinutes("mm");
+	    document.getElementById('time').value = time;
+    }
+    setTime();
+</script>
+
+{% endblock %}
